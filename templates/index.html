@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="predict-page" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('{{ url_for('static', filename='leaves.jpg') }}'); background-size: cover; background-position: center;">
+    <div class="overlay">
+        <div class="container">
+            <a href="/" class="back-btn">← Back</a>
+            <h1>🌾 Enter Soil & Climate Data</h1>
+            <form action="/predict" method="POST">
+                <label>Nitrogen (N):</label>
+                <input type="text" name="N" value="{{ N or '' }}" required>
+                <label>Phosphorus (P):</label>
+                <input type="text" name="P" value="{{ P or '' }}" required>
+                <label>Potassium (K):</label>
+                <input type="text" name="K" value="{{ K or '' }}" required>
+                <label>Temperature (°C):</label>
+                <input type="text" name="temperature" value="{{ temperature or '' }}" required>
+                <label>Humidity (%):</label>
+                <input type="text" name="humidity" value="{{ humidity or '' }}" required>
+                <label>pH Level:</label>
+                <input type="text" name="ph" value="{{ ph or '' }}" required>
+                <label>Rainfall (mm):</label>
+                <input type="text" name="rainfall" value="{{ rainfall or '' }}" required>
+                <button type="submit">Predict Crop 🔍</button>
+            </form>
+            {% if prediction is not none %}
+            <div class="result">
+                🌾 Recommended Crop: <span>{{ prediction }}</span>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

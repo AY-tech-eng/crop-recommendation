@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="welcome-page" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ url_for('static', filename='field.jpg') }}'); background-size: cover; background-position: center;">
+    <div class="welcome-container">
+        <div class="leaf-icon">🌿</div>
+        <h1>Crop Recommendation System</h1>
+        <p>Discover the best crop for your soil and climate conditions using the power of Machine Learning</p>
+        <a href="/predict-page">
+            <button class="get-started-btn">🌱 Get Started</button>
+        </a>
+    </div>
+</body>
+</html>
