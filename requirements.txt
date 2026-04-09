@@ -1,6 +1,6 @@
 flask
 numpy
-scikit-learn
+scikit-learn==1.8.0
 joblib
 gunicorn
 setuptools
