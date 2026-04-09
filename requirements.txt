@@ -1,6 +1,6 @@
-flask==2.0.3
+flask==
 numpy
-scikit-learn==1.0.2
+scikit-learn==1.2.2
 joblib
 gunicorn
-werkzeug==2.0.3
+setuptools
