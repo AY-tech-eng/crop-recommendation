@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation - Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="results-page">
+    <div class="results-wrapper">
+        <div class="results-container">
+            <!-- Header with Actions -->
+            <div class="results-header">
+                <a href="/predict-page" class="back-btn">← New Analysis</a>
+                <h1>📊 Analysis Results</h1>
+                <button onclick="window.print()" class="action-btn primary">📥 Download Report</button>
+            </div>
+
+            <!-- Input Summary Card -->
+            <div class="result-card summary-card">
+                <h3>📝 Input Data Summary</h3>
+                <div class="input-summary-grid">
+                    <div class="summary-item">
+                        <span class="summary-label">Nitrogen (N):</span>
+                        <span class="summary-value">{{ N }} kg/ha</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Phosphorus (P):</span>
+                        <span class="summary-value">{{ P }} kg/ha</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Potassium (K):</span>
+                        <span class="summary-value">{{ K }} kg/ha</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Temperature:</span>
+                        <span class="summary-value">{{ temperature }}°C</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Humidity:</span>
+                        <span class="summary-value">{{ humidity }}%</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">pH Level:</span>
+                        <span class="summary-value">{{ ph }}</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Rainfall:</span>
+                        <span class="summary-value">{{ rainfall }} mm</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Result Card -->
+            <div class="result-card main-result">
+                <div class="result-header">
+                    <h2>🎯 Recommended Crop</h2>
+                </div>
+                <div class="crop-name">{{ prediction|upper }}</div>
+                
+                <div class="metrics-row">
+                    <div class="metric">
+                        <div class="metric-label">Model Confidence</div>
+                        <div class="metric-value">{{ confidence }}%</div>
+                        <div class="confidence-bar">
+                            <div class="confidence-fill" style="width: {{ confidence }}%"></div>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-label">Soil Suitability</div>
+                        <div class="metric-value">{{ suitability }}%</div>
+                        <div class="suitability-bar">
+                            <div class="suitability-fill" style="width: {{ suitability }}%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crop-details">
+                    <div class="detail-item">
+                        <span class="detail-icon">📅</span>
+                        <div>
+                            <div class="detail-label">Best Season</div>
+                            <div class="detail-value">{{ season }}</div>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">⏱️</span>
+                        <div>
+                            <div class="detail-label">Growth Duration</div>
+                            <div class="detail-value">{{ growth_duration }}</div>
+                        </div>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-icon">💰</span>
+                        <div>
+                            <div class="detail-label">Market Value</div>
+                            <div class="detail-value">{{ market_value }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two Column Layout for Analysis -->
+            <div class="two-column-layout">
+                <!-- Left Column -->
+                <div class="column">
+                    <!-- Alternative Crops -->
+                    {% if alternatives %}
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3>🌱 Alternative Crops to Consider</h3>
+                        </div>
+                        <p class="section-explanation">
+                            The <strong>badge</strong> shows the model's confidence that this crop would work. 
+                            The <strong>suitability score</strong> shows how well your soil conditions match the ideal requirements for that crop.
+                        </p>
+                        <div class="alternatives-list">
+                            {% for alt in alternatives %}
+                            <div class="alternative-item">
+                                <div class="alt-header">
+                                    <div class="alt-name">{{ alt.name|capitalize }}</div>
+                                    <div class="alt-badge" title="Model's confidence this crop would work">{{ alt.confidence }}%</div>
+                                </div>
+                                <div class="alt-stats">
+                                    <span class="alt-stat">
+                                        <strong>Soil Suitability:</strong> {{ alt.suitability }}% 
+                                        <span class="help-tip" title="How well your current soil conditions match this crop's ideal requirements">ℹ️</span>
+                                    </span>
+                                </div>
+                                <div class="mini-bar">
+                                    <div class="mini-bar-fill" style="width: {{ alt.suitability }}%"></div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Crop Rotation -->
+                    {% if rotation_crops %}
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3>🔄 Crop Rotation Plan</h3>
+                        </div>
+                        <p class="rotation-intro">After harvesting <strong>{{ prediction }}</strong>, consider rotating with:</p>
+                        <div class="rotation-grid">
+                            {% for crop in rotation_crops %}
+                            <div class="rotation-item">{{ crop|capitalize }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="info-note">
+                            <strong>Why rotate?</strong> Crop rotation helps prevent soil depletion, reduces pest buildup, and improves soil structure.
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Right Column -->
+                <div class="column">
+                    <!-- Fertilizer Recommendations -->
+                    {% if fertilizer_advice %}
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3>🧪 Fertilizer Analysis</h3>
+                        </div>
+                        <div class="advice-list">
+                            {% for advice in fertilizer_advice %}
+                            <div class="advice-item {% if '✅' in advice %}optimal{% elif '⬆️' in advice %}low{% elif '⬇️' in advice %}high{% endif %}">
+                                {{ advice }}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Environmental Conditions -->
+                    {% if env_advice %}
+                    <div class="result-card">
+                        <div class="result-header">
+                            <h3>🌍 Environmental Assessment</h3>
+                        </div>
+                        <div class="advice-list">
+                            {% for advice in env_advice %}
+                            <div class="advice-item {% if '✅' in advice %}optimal{% endif %}">
+                                {{ advice }}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Bottom Actions -->
+            <div class="bottom-actions">
+                <a href="/predict-page" class="back-btn">
+                    ← Analyze Another Field
+                </a>
+                <a href="/" class="back-btn">
+                    Return to Home →
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

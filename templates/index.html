@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Crop Recommendation</title>
+    <title>Crop Recommendation - Input</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body class="predict-page" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('{{ url_for('static', filename='leaves.jpg') }}'); background-size: cover; background-position: center;">
+<body class="predict-page" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('{{ url_for('static', filename='leaves.jpg') }}'); background-size: auto; background-position: center; background-repeat: repeat;">
     <div class="overlay">
-        <div class="container">
-            <a href="/" class="back-btn">← Back</a>
+        <div class="container input-container">
+            <a href="/" class="back-btn">← Back to Home</a>
             <h1>🌾 Enter Soil & Climate Data</h1>
+            <p class="subtitle">Provide accurate soil and environmental conditions for precise crop recommendations</p>
+            
+            <!-- Input Form -->
             <form action="/predict" method="POST">
-                <label>Nitrogen (N):</label>
-                <input type="text" name="N" value="{{ N or '' }}" required>
-                <label>Phosphorus (P):</label>
-                <input type="text" name="P" value="{{ P or '' }}" required>
-                <label>Potassium (K):</label>
-                <input type="text" name="K" value="{{ K or '' }}" required>
-                <label>Temperature (°C):</label>
-                <input type="text" name="temperature" value="{{ temperature or '' }}" required>
-                <label>Humidity (%):</label>
-                <input type="text" name="humidity" value="{{ humidity or '' }}" required>
-                <label>pH Level:</label>
-                <input type="text" name="ph" value="{{ ph or '' }}" required>
-                <label>Rainfall (mm):</label>
-                <input type="text" name="rainfall" value="{{ rainfall or '' }}" required>
-                <button type="submit">Predict Crop 🔍</button>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Nitrogen (N) kg/ha:</label>
+                        <input type="number" step="0.01" name="N" placeholder="e.g., 90" required>
+                        <span class="helper-text">Typical range: 0-140</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Phosphorus (P) kg/ha:</label>
+                        <input type="number" step="0.01" name="P" placeholder="e.g., 42" required>
+                        <span class="helper-text">Typical range: 5-145</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Potassium (K) kg/ha:</label>
+                        <input type="number" step="0.01" name="K" placeholder="e.g., 43" required>
+                        <span class="helper-text">Typical range: 5-205</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Temperature (°C):</label>
+                        <input type="number" step="0.01" name="temperature" placeholder="e.g., 25.5" required>
+                        <span class="helper-text">Typical range: 8-43</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Humidity (%):</label>
+                        <input type="number" step="0.01" name="humidity" placeholder="e.g., 80" required>
+                        <span class="helper-text">Typical range: 14-99</span>
+                    </div>
+                    <div class="form-group">
+                        <label>pH Level:</label>
+                        <input type="number" step="0.01" name="ph" placeholder="e.g., 6.5" required>
+                        <span class="helper-text">Typical range: 3.5-9.9</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Rainfall (mm):</label>
+                        <input type="number" step="0.01" name="rainfall" placeholder="e.g., 202" required>
+                        <span class="helper-text">Typical range: 20-298</span>
+                    </div>
+                </div>
+                
+                <button type="submit" class="predict-btn">
+                    🔍 Analyze & Get Recommendation
+                </button>
             </form>
-            {% if prediction is not none %}
-            <div class="result">
-                🌾 Recommended Crop: <span>{{ prediction }}</span>
+
+            <div class="info-box">
+                <h3>💡 How to use this system:</h3>
+                <ul>
+                    <li>Enter your soil's NPK (Nitrogen, Phosphorus, Potassium) values from soil test</li>
+                    <li>Provide current environmental conditions (temperature, humidity, rainfall)</li>
+                    <li>Include soil pH level from your soil analysis</li>
+                    <li>Click analyze to get personalized crop recommendations</li>
+                </ul>
             </div>
-            {% endif %}
         </div>
     </div>
 </body>
