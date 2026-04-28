@@ -1,0 +1,332 @@
+{
+  "rice": {
+    "ideal_conditions": {
+      "N": [80, 120],
+      "P": [40, 60],
+      "K": [40, 60],
+      "temperature": [20, 27],
+      "humidity": [80, 90],
+      "ph": [5.5, 7.0],
+      "rainfall": [150, 300]
+    },
+    "season": "Kharif (June-October)",
+    "rotation_compatible": ["wheat", "maize", "chickpea", "lentil"],
+    "growth_duration": "120-150 days",
+    "market_value": "Medium-High"
+  },
+  "maize": {
+    "ideal_conditions": {
+      "N": [75, 100],
+      "P": [40, 60],
+      "K": [40, 60],
+      "temperature": [18, 27],
+      "humidity": [60, 70],
+      "ph": [5.8, 7.0],
+      "rainfall": [50, 100]
+    },
+    "season": "Kharif & Rabi",
+    "rotation_compatible": ["wheat", "soybean", "cotton", "groundnut"],
+    "growth_duration": "80-110 days",
+    "market_value": "Medium"
+  },
+  "chickpea": {
+    "ideal_conditions": {
+      "N": [40, 60],
+      "P": [60, 80],
+      "K": [30, 50],
+      "temperature": [20, 30],
+      "humidity": [60, 70],
+      "ph": [6.0, 7.5],
+      "rainfall": [60, 100]
+    },
+    "season": "Rabi (October-March)",
+    "rotation_compatible": ["rice", "wheat", "maize", "sorghum"],
+    "growth_duration": "95-105 days",
+    "market_value": "High"
+  },
+  "kidneybeans": {
+    "ideal_conditions": {
+      "N": [40, 60],
+      "P": [50, 70],
+      "K": [40, 60],
+      "temperature": [15, 25],
+      "humidity": [65, 75],
+      "ph": [6.0, 7.0],
+      "rainfall": [60, 100]
+    },
+    "season": "Rabi (October-March)",
+    "rotation_compatible": ["rice", "maize", "wheat"],
+    "growth_duration": "90-120 days",
+    "market_value": "High"
+  },
+  "pigeonpeas": {
+    "ideal_conditions": {
+      "N": [40, 60],
+      "P": [50, 70],
+      "K": [30, 50],
+      "temperature": [18, 29],
+      "humidity": [60, 75],
+      "ph": [6.0, 7.5],
+      "rainfall": [60, 100]
+    },
+    "season": "Kharif (June-October)",
+    "rotation_compatible": ["wheat", "sorghum", "maize"],
+    "growth_duration": "150-180 days",
+    "market_value": "Medium"
+  },
+  "mothbeans": {
+    "ideal_conditions": {
+      "N": [30, 50],
+      "P": [40, 60],
+      "K": [30, 50],
+      "temperature": [24, 32],
+      "humidity": [55, 70],
+      "ph": [6.5, 8.0],
+      "rainfall": [40, 65]
+    },
+    "season": "Kharif (July-October)",
+    "rotation_compatible": ["wheat", "mustard", "barley"],
+    "growth_duration": "75-90 days",
+    "market_value": "Medium"
+  },
+  "mungbean": {
+    "ideal_conditions": {
+      "N": [25, 40],
+      "P": [50, 70],
+      "K": [30, 50],
+      "temperature": [25, 35],
+      "humidity": [60, 75],
+      "ph": [6.2, 7.2],
+      "rainfall": [60, 100]
+    },
+    "season": "Kharif & Summer",
+    "rotation_compatible": ["rice", "wheat", "maize"],
+    "growth_duration": "60-75 days",
+    "market_value": "High"
+  },
+  "blackgram": {
+    "ideal_conditions": {
+      "N": [30, 50],
+      "P": [50, 70],
+      "K": [30, 50],
+      "temperature": [25, 35],
+      "humidity": [60, 75],
+      "ph": [6.5, 7.5],
+      "rainfall": [60, 100]
+    },
+    "season": "Kharif & Rabi",
+    "rotation_compatible": ["rice", "wheat", "sorghum"],
+    "growth_duration": "70-90 days",
+    "market_value": "High"
+  },
+  "lentil": {
+    "ideal_conditions": {
+      "N": [25, 40],
+      "P": [60, 80],
+      "K": [25, 40],
+      "temperature": [18, 30],
+      "humidity": [60, 70],
+      "ph": [6.0, 7.5],
+      "rainfall": [60, 100]
+    },
+    "season": "Rabi (October-March)",
+    "rotation_compatible": ["rice", "maize", "wheat"],
+    "growth_duration": "95-110 days",
+    "market_value": "High"
+  },
+  "pomegranate": {
+    "ideal_conditions": {
+      "N": [50, 80],
+      "P": [30, 50],
+      "K": [50, 70],
+      "temperature": [15, 30],
+      "humidity": [35, 55],
+      "ph": [6.5, 7.5],
+      "rainfall": [50, 100]
+    },
+    "season": "Year-round (Perennial)",
+    "rotation_compatible": ["intercropping with pulses"],
+    "growth_duration": "Perennial (3 years to bearing)",
+    "market_value": "Very High"
+  },
+  "banana": {
+    "ideal_conditions": {
+      "N": [200, 300],
+      "P": [50, 80],
+      "K": [200, 300],
+      "temperature": [25, 35],
+      "humidity": [75, 85],
+      "ph": [6.0, 7.5],
+      "rainfall": [100, 200]
+    },
+    "season": "Year-round (Perennial)",
+    "rotation_compatible": ["intercropping with vegetables"],
+    "growth_duration": "Perennial (12-15 months)",
+    "market_value": "High"
+  },
+  "mango": {
+    "ideal_conditions": {
+      "N": [100, 150],
+      "P": [40, 60],
+      "K": [100, 150],
+      "temperature": [24, 30],
+      "humidity": [60, 75],
+      "ph": [5.5, 7.5],
+      "rainfall": [75, 150]
+    },
+    "season": "Year-round (Perennial)",
+    "rotation_compatible": ["intercropping with pulses"],
+    "growth_duration": "Perennial (3-5 years to bearing)",
+    "market_value": "Very High"
+  },
+  "grapes": {
+    "ideal_conditions": {
+      "N": [50, 100],
+      "P": [40, 60],
+      "K": [100, 150],
+      "temperature": [15, 25],
+      "humidity": [60, 75],
+      "ph": [6.0, 7.0],
+      "rainfall": [50, 100]
+    },
+    "season": "Year-round (Perennial)",
+    "rotation_compatible": ["intercropping with vegetables"],
+    "growth_duration": "Perennial (2-3 years to bearing)",
+    "market_value": "Very High"
+  },
+  "watermelon": {
+    "ideal_conditions": {
+      "N": [80, 120],
+      "P": [40, 60],
+      "K": [80, 120],
+      "temperature": [24, 32],
+      "humidity": [65, 80],
+      "ph": [6.0, 7.0],
+      "rainfall": [40, 60]
+    },
+    "season": "Summer (March-June)",
+    "rotation_compatible": ["wheat", "mustard", "chickpea"],
+    "growth_duration": "80-100 days",
+    "market_value": "Medium"
+  },
+  "muskmelon": {
+    "ideal_conditions": {
+      "N": [80, 120],
+      "P": [40, 60],
+      "K": [80, 120],
+      "temperature": [24, 32],
+      "humidity": [65, 80],
+      "ph": [6.0, 7.0],
+      "rainfall": [40, 60]
+    },
+    "season": "Summer (March-June)",
+    "rotation_compatible": ["wheat", "mustard", "chickpea"],
+    "growth_duration": "80-100 days",
+    "market_value": "Medium-High"
+  },
+  "apple": {
+    "ideal_conditions": {
+      "N": [80, 120],
+      "P": [40, 60],
+      "K": [100, 150],
+      "temperature": [15, 24],
+      "humidity": [60, 75],
+      "ph": [5.5, 7.0],
+      "rainfall": [100, 150]
+    },
+    "season": "Year-round (Perennial)",
+    "rotation_compatible": ["intercropping with vegetables"],
+    "growth_duration": "Perennial (4-5 years to bearing)",
+    "market_value": "Very High"
+  },
+  "orange": {
+    "ideal_conditions": {
+      "N": [100, 150],
+      "P": [40, 60],
+      "K": [100, 150],
+      "temperature": [15, 30],
+      "humidity": [60, 75],
+      "ph": [6.0, 7.5],
+      "rainfall": [100, 150]
+    },
+    "season": "Year-round (Perennial)",
+    "rotation_compatible": ["intercropping with vegetables"],
+    "growth_duration": "Perennial (3-4 years to bearing)",
+    "market_value": "High"
+  },
+  "papaya": {
+    "ideal_conditions": {
+      "N": [100, 150],
+      "P": [50, 80],
+      "K": [100, 150],
+      "temperature": [22, 32],
+      "humidity": [60, 75],
+      "ph": [6.0, 7.0],
+      "rainfall": [100, 200]
+    },
+    "season": "Year-round (Perennial)",
+    "rotation_compatible": ["intercropping with vegetables"],
+    "growth_duration": "Perennial (9-12 months)",
+    "market_value": "Medium-High"
+  },
+  "coconut": {
+    "ideal_conditions": {
+      "N": [100, 150],
+      "P": [40, 60],
+      "K": [150, 250],
+      "temperature": [27, 32],
+      "humidity": [80, 90],
+      "ph": [5.5, 7.0],
+      "rainfall": [150, 250]
+    },
+    "season": "Year-round (Perennial)",
+    "rotation_compatible": ["intercropping with vegetables, spices"],
+    "growth_duration": "Perennial (5-7 years to bearing)",
+    "market_value": "High"
+  },
+  "cotton": {
+    "ideal_conditions": {
+      "N": [80, 120],
+      "P": [40, 60],
+      "K": [40, 60],
+      "temperature": [21, 30],
+      "humidity": [60, 75],
+      "ph": [6.0, 7.5],
+      "rainfall": [60, 120]
+    },
+    "season": "Kharif (June-October)",
+    "rotation_compatible": ["wheat", "chickpea", "sorghum"],
+    "growth_duration": "150-180 days",
+    "market_value": "High"
+  },
+  "jute": {
+    "ideal_conditions": {
+      "N": [60, 100],
+      "P": [30, 50],
+      "K": [30, 50],
+      "temperature": [24, 37],
+      "humidity": [70, 90],
+      "ph": [6.0, 7.5],
+      "rainfall": [150, 250]
+    },
+    "season": "Kharif (April-July)",
+    "rotation_compatible": ["rice", "wheat", "mustard"],
+    "growth_duration": "120-150 days",
+    "market_value": "Medium"
+  },
+  "coffee": {
+    "ideal_conditions": {
+      "N": [100, 150],
+      "P": [40, 60],
+      "K": [100, 150],
+      "temperature": [15, 28],
+      "humidity": [70, 85],
+      "ph": [6.0, 6.5],
+      "rainfall": [150, 250]
+    },
+    "season": "Year-round (Perennial)",
+    "rotation_compatible": ["intercropping with spices"],
+    "growth_duration": "Perennial (3-4 years to bearing)",
+    "market_value": "Very High"
+  }
+}
